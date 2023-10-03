@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import compilerWasmInit, { parse } from './compiler-wasm/compiler_wasm';
 
-function App() {
+export default function App() {
+  const [input, setInput] = useState('');
+  const [output, setOutput] = useState('');
+
+  useEffect(() => {
+    compilerWasmInit();
+  }, [compilerWasmInit]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <textarea className="textarea" onChange={(event) => {
+        const newInput = event.target.value;
+        setInput(newInput);
+        setOutput(parse(newInput));
+      }} value={input} />
+      <textarea className="textarea" onChange={() => {}} value={output} />
     </div>
   );
 }
-
-export default App;
