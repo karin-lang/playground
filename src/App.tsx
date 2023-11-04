@@ -12,11 +12,19 @@ export default function App() {
 
   return (
     <div className="App">
+      ― 入力 ―
       <textarea className="textarea" onChange={(event) => {
         const newInput = event.target.value;
         setInput(newInput);
-        setOutput(parse(newInput));
+
+        try {
+          setOutput(parse(newInput));
+        } catch (e) {
+          setOutput('Failed to parse. (possibly parser panicked)');
+          console.error(e);
+        }
       }} value={input} />
+      ― 出力 ―
       <textarea className="textarea" onChange={() => {}} value={output} />
     </div>
   );
