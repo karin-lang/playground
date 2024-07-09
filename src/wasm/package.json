@@ -1,0 +1,14 @@
+{
+  "name": "karinc-wasm",
+  "version": "0.1.0",
+  "files": [
+    "karinc_wasm_bg.wasm",
+    "karinc_wasm.js",
+    "karinc_wasm.d.ts"
+  ],
+  "module": "karinc_wasm.js",
+  "types": "karinc_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
