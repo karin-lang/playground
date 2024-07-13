@@ -29,7 +29,7 @@ export default function Home() {
   function compileKarin(input: string) {
     try {
       const newOutput = compile(input);
-      setOutput(newOutput[0]);
+      setOutput(newOutput);
       setLog('');
     } catch (err) {
       setLog('[Compile Error]\n' + String(err));

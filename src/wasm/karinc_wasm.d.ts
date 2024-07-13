@@ -2,9 +2,9 @@
 /* eslint-disable */
 /**
 * @param {string} input
-* @returns {(string)[]}
+* @returns {string}
 */
-export function compile(input: string): (string)[];
+export function compile(input: string): string;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
